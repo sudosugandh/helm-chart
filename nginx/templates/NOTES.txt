@@ -1,0 +1,8 @@
+1. Get the IP address of the Nginx service:
+
+   export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "nginx.fullname" . }} -o jsonpath='{.spec.clusterIP}')
+
+2. Test the Nginx deployment by running the following command:
+
+   curl http://$SERVICE_IP
+
